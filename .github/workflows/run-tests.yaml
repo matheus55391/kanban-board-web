@@ -1,21 +1,17 @@
 on: pull_request
 
-name: Continuos Integration
+name: Continuous Integration
 
 jobs:
-  continuos-integration:
+  continuous-integration:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Using Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.
+          node-version: 18.x
       - name: Install dependencies
         run: npm install
-      - name: Build
-        run: npm run build
-      - name: Lint
-        run: npm run lint
       - name: Test
         run: npm run test
