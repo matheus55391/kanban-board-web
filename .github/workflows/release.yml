@@ -6,28 +6,20 @@ on:
       - master
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate Changelog
+        run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Lint
-        run: npm run lint
-      - name: Test
-        run: npm run test
-      - name: Auto Release              
-        uses: CupOfTea696/gh-action-auto-release@v1.0.2
-        with:
-          title: "Release: $version"
-          changelog: true
-          tag: "v$semver"
-          draft: false
-          regex: "/^Release: #{semver}$/i"
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: my_gh_org/my_gh_repo
