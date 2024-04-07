@@ -45,7 +45,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col bg-black justify-center items-center h-screen">
+    <div className="flex flex-col  justify-center items-center h-screen">
       <h1 className="text-4xl font-bold" data-testid="title">Kanban Board</h1>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
