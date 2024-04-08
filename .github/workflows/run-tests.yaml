@@ -1,17 +1,18 @@
 on: pull_request
 
-name: Continuous Integration
+name: Run Tests on Pull Requests
 
 jobs:
   continuous-integration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v3
+      - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
-      - name: Test
+      - name: 🚀 Run Tests
         run: npm run test
