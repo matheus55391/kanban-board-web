@@ -1,6 +1,6 @@
 on: pull_request
 
-name: Continuous Integration
+name: Run Tests on Pull Requests
 
 jobs:
   continuous-integration:
