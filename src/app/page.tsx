@@ -13,7 +13,7 @@ const Page: React.FC = () => {
             <button className="hover:bg-gray-200 p-2 rounded-xl px-2 transition-all text-sm font-medium">
               Log in
             </button>
-            <button className="font-semibold text-white rounded-xl bg-rose-500 transition-all hover:bg-rose-600 font-medium text-sm px-2">
+            <button className="text-white rounded-xl bg-rose-500 transition-all hover:bg-rose-600 font-medium text-sm px-2">
               Sign Up
             </button>
           </div>
@@ -34,12 +34,16 @@ const Page: React.FC = () => {
               <FaArrowRight size={16} />
             </button>
           </Link>
-          <p className="text-sm p-2 font-medium text-zinc-700">Free Forever. No Credit Card.</p>
+          <p className="text-sm p-2 font-medium text-zinc-700">
+            Free Forever. No Credit Card.
+          </p>
         </div>
       </main>
 
       <footer className="bg-zinc-100 p-6 text-center flex flex-row space-x-2 w-screen  ">
-        <p className="text-sm mr-auto">© 2024 KanbanBoard. All rights reserved.</p>
+        <p className="text-sm mr-auto">
+          © 2024 KanbanBoard. All rights reserved.
+        </p>
         <p className="text-sm ">Build with ♥</p>
       </footer>
     </div>
