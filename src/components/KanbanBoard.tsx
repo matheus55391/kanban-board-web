@@ -35,16 +35,19 @@ export default function KanbanBoard() {
           title="Todo"
           items={state.planned}
           droppableId="planned"
+          color="bg-gray-300"
         />
         <ColumnComponent
           title="In Progress"
           items={state.inProgress}
           droppableId="inProgress"
+          color="bg-yellow-300"
         />
         <ColumnComponent
           title="Completed"
           items={state.done}
           droppableId="done"
+          color="bg-green-300"
         />
       </div>
     </DragDropContext>
