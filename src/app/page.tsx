@@ -1,8 +1,14 @@
+'use client';
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { Router } from "next/router";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 const Page: React.FC = () => {
+  const { data: session } = useSession();
+
+  
   return (
     <div className="flex flex-col h-screen bg-zinc-50">
       <header className=" text-black p-4 md:px-14 flex justify-between items-center">

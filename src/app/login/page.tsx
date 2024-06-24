@@ -1,3 +1,4 @@
+import { signIn } from "@/libs/auth";
 import React from "react";
 
 const LoginPage: React.FC = () => {
@@ -19,13 +20,7 @@ const LoginPage: React.FC = () => {
             Wellcome back!
           </h1>
           <div className="w-80">
-            <form className="space-y-6 ">
-            
-              <div className="flex flex-row items-center space-x-2">
-                <div className="w-full flex flex-row space-x-2 bg-gray-200 h-[0.5px]" />
-                <span className="text-xs text-gray-300">OR</span>
-                <div className="w-full flex flex-row space-x-2 bg-gray-200 h-[0.5px]" />
-              </div>
+            <div className="space-y-6 ">
               <div className="flex flex-col align-baseline text-left">
                 <span className="text-xs font-medium ">Email Address</span>
                 <input
@@ -52,7 +47,27 @@ const LoginPage: React.FC = () => {
               >
                 Log In
               </button>
-            </form>
+              <div className="flex flex-row items-center space-x-2">
+                <div className="w-full flex flex-row space-x-2 bg-gray-200 h-[0.5px]" />
+                <span className="text-xs text-gray-300">OR</span>
+                <div className="w-full flex flex-row space-x-2 bg-gray-200 h-[0.5px]" />
+              </div>
+              <div>
+                <form
+                  action={async () => {
+                    "use server";
+                    await signIn("google");
+                  }}
+                >
+                  <button
+                    type="submit"
+                    className="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-6 rounded-md transition-all"
+                  >
+                    Log In with Google
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </main>
