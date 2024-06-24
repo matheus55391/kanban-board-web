@@ -1,4 +1,4 @@
-import KanbanBoard from "@/components/KanbanBoard";
+import KanbanBoard from "@/components/dashboard/KanbanBoard";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

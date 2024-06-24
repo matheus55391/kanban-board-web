@@ -1,4 +1,4 @@
-import SessionWrapper from "@/components/auth/SessionWrapper";
+import SessionWrapper from "@/components/wrappers/SessionWrapper";
 
 
 export default function Providers({
