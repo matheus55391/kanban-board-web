@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        // liberar o github
+        domains: ['avatars.githubusercontent.com']
+
+    }
+};
 
 export default nextConfig;

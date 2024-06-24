@@ -3,12 +3,12 @@ import React from "react";
 
 interface Tag {
   name: string;
-  color: string; 
+  color: string;
 }
 
 interface TaskItemCardProps {
   id: string;
-  title: string; 
+  title: string;
   tags: Tag[];
   date: string;
   index: number;
@@ -21,7 +21,7 @@ const getItemStyle = (isDragging: boolean): string =>
 
 const TaskItemCard: React.FC<TaskItemCardProps> = ({
   id,
-  title, 
+  title,
   tags,
   date,
   index,
@@ -35,7 +35,7 @@ const TaskItemCard: React.FC<TaskItemCardProps> = ({
         className={getItemStyle(snapshot.isDragging)}
         style={provided.draggableProps.style}
       >
-        <div className="flex flex-col rounded-md p-4 bg-white w-full h-full border-2 border-black">
+        <div className="flex flex-col rounded-md p-4 bg-white w-full h-full border-[1px] border-gray-300">
           <h1 className="text-sm font-semibold text-black">{title}</h1>
           <div className="flex flex-row space-x-2 py-2">
             {tags.map((tag, index) => (
