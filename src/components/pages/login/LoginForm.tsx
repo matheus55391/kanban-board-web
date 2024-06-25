@@ -3,16 +3,16 @@ import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { LoginSchema } from "@/schemas";
 import { FormError } from "@/components/alerts/FormError";
 import { useMutation } from "@tanstack/react-query";
 import { CgSpinner } from "react-icons/cg";
-import axios from "@/lib/axios";
+import { loginSchema } from "@/schemas";
+import axios from "axios";
 
 const LoginForm: React.FC = () => {
 
-  const formMethods = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const formMethods = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "user@example.com",
       password: "string",
@@ -30,7 +30,6 @@ const LoginForm: React.FC = () => {
       email: email,
       password: password,
     });
-    console.log("🚀 ~ res:", res)
     return res.data;
   };
 
@@ -38,7 +37,7 @@ const LoginForm: React.FC = () => {
     mutationFn: fetchLogin,
   });
 
-  const onSubmit = (data: z.infer<typeof LoginSchema>) => {
+  const onSubmit = (data: z.infer<typeof loginSchema>) => {
     mutation.mutate(data);
   };
 

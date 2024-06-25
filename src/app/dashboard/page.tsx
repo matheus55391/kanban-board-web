@@ -4,7 +4,8 @@ import Link from "next/link";
 import React from "react";
 import { IoSettings, IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
 
-const Page: React.FC = () => {
+const Page: React.FC = async () => {
+
   return (
     <div className="flex h-screen bg-gray-100">
       <div className="bg-[#261C4D] w-14 flex flex-col items-center justify-between p-2 ">
