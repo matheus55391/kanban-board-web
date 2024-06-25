@@ -1,7 +1,7 @@
 import React from 'react';
 import MainContent from './ui/MainContent';
 import Footer from './ui/Footer';
-import Header from './ui/header';
+import Header from './ui/Header';
 
 
 const StartPageLayout: React.FC = () => {
