@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import SignUpLinkButton from '@/components/SignUpLinkButton';
 
 const Header: React.FC = () => {
   return (
@@ -12,11 +13,7 @@ const Header: React.FC = () => {
               Log in
             </button>
           </Link>
-          <Link href="/signup">
-            <button className="text-white rounded-xl bg-rose-500 h-full transition-all hover:bg-rose-600 font-medium text-sm px-2">
-              Sign Up
-            </button>
-          </Link>
+          <SignUpLinkButton />
         </div>
       </div>
     </header>

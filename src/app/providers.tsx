@@ -1,5 +1,7 @@
-import SessionWrapper from "@/components/wrappers/SessionWrapper";
-
+"use client";
+import queryClient from "@/lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { SessionProvider } from "next-auth/react";
 
 export default function Providers({
   children,
@@ -7,9 +9,8 @@ export default function Providers({
   children: React.ReactNode;
 }>) {
   return (
-    <SessionWrapper>
-
-        {children}
-    </SessionWrapper>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider>{children}</SessionProvider>
+    </QueryClientProvider>
   );
 }
