@@ -1,10 +1,17 @@
 import KanbanBoard from "@/components/pages/dashboard/KanbanBoard";
+import LogoutIconButton from "@/components/pages/dashboard/buttons/LogoutIconButton";
+import { auth } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
-import { IoSettings, IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
+import { IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
 
-const Page: React.FC = async () => {
+const DashBoardPage: React.FC = async () => {
+  const session = await auth()
+  if(!session?.user) {
+    redirect('/login')
+  }
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -28,10 +35,9 @@ const Page: React.FC = async () => {
             <IoLogoGithub className="text-white" size={24} />
           </Link>
         </div>
-        <div className="py-2">
-          <IoSettings className="text-white" size={24} />
-        </div>
+        <LogoutIconButton />
       </div>
+
       <div className="flex-1 max-h-screen overflow-scroll">
         <div className="flex flex-row items-center pl-4">
           <IoLogoBuffer className="text-black" size={24} />
@@ -45,4 +51,4 @@ const Page: React.FC = async () => {
   );
 };
 
-export default Page;
+export default DashBoardPage;

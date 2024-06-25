@@ -7,6 +7,7 @@ const GoogleSignInButton: React.FC = () => {
     <form
       action={async () => {
         "use server";
+        console.log("use server");
         await signIn("google", { redirectTo: "/dashboard" });
       }}
     >
