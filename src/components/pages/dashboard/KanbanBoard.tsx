@@ -30,7 +30,7 @@ export default function KanbanBoard() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="flex flex-row overflow-x-scroll  h-full w-full ">
+      <div className="flex flex-row overflow-x-scroll h-full  w-full ">
         <ColumnComponent
           title="Todo"
           items={state.planned}
