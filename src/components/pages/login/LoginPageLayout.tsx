@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './ui/Header';
-import OrDivider from '../../OrDivider';
+import OrDivider from '../../core/OrDivider';
 import GoogleSignInButton from './GoogleSignInButton';
 import GithubSignInButton from './GithubSignInButton';
 import { auth } from '@/lib/auth';

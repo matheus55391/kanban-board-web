@@ -1,6 +1,5 @@
 import KanbanBoard from "@/components/pages/dashboard/KanbanBoard";
 import LogoutIconButton from "@/components/pages/dashboard/buttons/LogoutIconButton";
-import { auth } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -8,7 +7,12 @@ import React from "react";
 import { IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
 
 const DashBoardPage: React.FC = async () => {
-  const session = await auth();
+  const session = {
+    user: {
+      name: "Matheus",
+      image: "https://github.com/matheus55391.png",
+    },
+  };
   if (!session?.user) {
     redirect("/login");
   }

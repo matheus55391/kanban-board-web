@@ -1,5 +1,5 @@
 import React from 'react';
-import OrDivider from '@/components/OrDivider';
+import OrDivider from '@/components/core/OrDivider';
 import OAuthRegisterButton from './OAuthRegisterButton';
 
 const RegisterForm: React.FC = () => {
