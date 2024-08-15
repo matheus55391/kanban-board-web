@@ -3,15 +3,13 @@ import Header from './ui/Header';
 import OrDivider from '../../core/OrDivider';
 import GoogleSignInButton from './GoogleSignInButton';
 import GithubSignInButton from './GithubSignInButton';
-import { auth } from '@/lib/auth';
-import { redirect } from 'next/navigation';
 
 
 const LoginPageLayout: React.FC = async () => {
-  const session = await auth()
-  if(session?.user) {
-    redirect('/dashboard')
-  }
+  // const session = await auth()
+  // if(session?.user) {
+  //   redirect('/dashboard')
+  // }
   return (
     <div className="flex flex-col h-screen bg-zinc-100">
       <Header />
