@@ -1,15 +1,14 @@
-import { signIn } from "@/lib/auth";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 
-const GoogleSignInButton: React.FC = () => {
+const GithubSignInButton: React.FC = () => {
   return (
     <form
-      action={async () => {
-        "use server";
-        console.log("use server");
-        await signIn("github", { redirectTo: "/dashboard" });
-      }}
+      // action={async () => {
+      //   "use server";
+      //   console.log("use server");
+      //   // await signIn("github", { redirectTo: "/dashboard" });
+      // }}
     >
       <button className="w-full" type="submit">
         <div className="hover:cursor-pointer m-2 w-full border-2 flex p-4 rounded-lg items-center justify-center space-x-4 bg-zinc-800 ">
@@ -21,4 +20,4 @@ const GoogleSignInButton: React.FC = () => {
   );
 };
 
-export default GoogleSignInButton;
+export default GithubSignInButton;
