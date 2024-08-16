@@ -1,12 +1,10 @@
 "use client";
 
 import LogoutButton from "@/components/auth/logout-button";
-import { AuthGuard } from "@/components/guards/auth-guard";
 import KanbanBoard from "@/components/pages/dashboard/KanbanBoard";
 import useSession from "@/hooks/use-session";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import React from "react";
 import { IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
 
