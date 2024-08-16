@@ -1,5 +1,5 @@
 import React from 'react';
-import OrDivider from '@/components/core/OrDivider';
+import Divider from '@/components/core/divider';
 import OAuthRegisterButton from './OAuthRegisterButton';
 
 const RegisterForm: React.FC = () => {
@@ -39,7 +39,7 @@ const RegisterForm: React.FC = () => {
         <button className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-6 rounded-md transition-all">
           Sign Up
         </button>
-        <OrDivider />
+        <Divider />
         <OAuthRegisterButton />
       </div>
     </div>

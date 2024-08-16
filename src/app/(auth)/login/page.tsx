@@ -1,8 +1,7 @@
 import React from "react";
-import LoginPageLayout from "@/components/pages/login/LoginPageLayout";
+import LoginView from "@/components/auth/login-view";
 
-const LoginPage: React.FC = () => {
-  return <LoginPageLayout />;
+export default function SignInPage(): React.JSX.Element {
+  return <LoginView />;
 };
 
-export default LoginPage;

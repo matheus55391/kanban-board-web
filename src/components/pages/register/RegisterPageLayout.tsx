@@ -4,7 +4,7 @@ import RegisterForm from './RegisterForm';
 
 const RegisterPageLayout: React.FC = () => {
   return (
-    <div className="flex flex-col h-screen bg-zinc-50">
+    <div className="flex flex-col h-screen bg-zinc-100">
       <Header />
       <main className="flex-grow flex flex-col items-center text-center justify-center">
         <div className="flex flex-col bg-white p-10 rounded-xl shadow-sm space-y-2">
