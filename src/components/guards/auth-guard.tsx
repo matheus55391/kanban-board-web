@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
+import useSession from '@/hooks/use-session';
 import { useRouter } from 'next/navigation';
-import { useUser } from '@/hooks/useUser';
+import * as React from 'react';
 
 export interface AuthGuardProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ export interface AuthGuardProps {
 
 export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | null {
   const router = useRouter();
-  const { user, error, isLoading } = useUser();
+  const { user, error, isLoading } = useSession();
   const [isChecking, setIsChecking] = React.useState<boolean>(true);
 
   const checkPermissions = async (): Promise<void> => {
@@ -25,7 +25,7 @@ export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | nul
 
     if (!user) {
 
-      router.replace('/login');
+      router.replace('/');
       return;
     }
 
@@ -44,7 +44,7 @@ export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | nul
   }
 
   // if (error) {
-  // TODO criar um alerta de erro
+  //TODO criar um alerta de erro
   //   return <Alert color="error">{error}</Alert>;
   // }
 

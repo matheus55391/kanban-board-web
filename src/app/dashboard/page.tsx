@@ -1,33 +1,31 @@
+"use client";
+
+import LogoutButton from "@/components/auth/logout-button";
+import { AuthGuard } from "@/components/guards/auth-guard";
 import KanbanBoard from "@/components/pages/dashboard/KanbanBoard";
-import LogoutIconButton from "@/components/pages/dashboard/buttons/LogoutIconButton";
+import useSession from "@/hooks/use-session";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 import { IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
 
-const DashBoardPage: React.FC = async () => {
+const DashBoardPage: React.FC = () => {
+  const { user } = useSession();
+
   const session = {
     user: {
-      name: "Matheus",
-      image: "https://github.com/matheus55391.png",
+      name: user?.name || "unknown",
+      image: user?.avatar,
     },
   };
-  if (!session?.user) {
-    redirect("/login");
-  }
 
   return (
     <div className="flex h-screen w-screen bg-gray-100">
       <div className="bg-rose-600 w-14 flex flex-col items-center justify-between  ">
         <div className="h-10 w-10 my-4 flex items-center justify-center  rounded-full bg-white overflow-hidden border-2 ">
           {session?.user.image ? (
-            <Image
-              src={session?.user.image}
-              alt="Logo"
-              width={40}
-              height={40}
-            />
+            <Image src={session.user.image} alt="Logo" width={40} height={40} />
           ) : (
             <span>{session?.user.name[0] + session?.user.name[1]}</span>
           )}
@@ -43,7 +41,7 @@ const DashBoardPage: React.FC = async () => {
             <IoLogoGithub className="text-white" size={24} />
           </Link>
         </div>
-        <LogoutIconButton />
+        <LogoutButton />
       </div>
 
       <div className="flex flex-col w-full overflow-scroll">
