@@ -66,7 +66,7 @@ function DashboardSideBar() {
       </div>
       <div className="p-2 flex flex-col space-y-2">
         <MenuSideBar />
-        <div className="h-[1px] bg-gray-300 " />
+        <div className="h-[1px] bg-gray-300 my-2 " />
         <ProjectsListSideBar />
       </div>
     </div>
@@ -109,7 +109,7 @@ function MenuButton({ icon, label }: MenuButtonProps) {
 function ProjectsListSideBar() {
   return (
     <div className="flex flex-col ">
-      <div className="flex flex-row justify-between items-center p-4 ">
+      <div className="flex flex-row justify-between items-center p-4 px-2 ">
         <h3 className="font-semibold text-sm text-gray-600">MY PROJECTS</h3>
         <IoIosAddCircleOutline size={18} color="#4b5563 " />
       </div>
