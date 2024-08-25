@@ -1,51 +1,14 @@
 'use client';
-import { getFirebaseAuth } from "@/lib/auth/getFirebaseAuth";
-import { Auth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import React from "react";
 import Divider from "../core/divider";
 import SignUpLinkButton from "../SignUpLinkButton";
 import GithubSignInButton from "./github-signin-button";
 import GoogleSignInButton from "./google-signin-button.tsx";
-
-interface OAuthProvider {
-  providerId: 'google' | 'github';
-
-}
-
-const oAuthProviders = [{ providerId: 'google' }, { providerId: 'github'}] satisfies OAuthProvider[];
+import useSession from "@/hooks/use-session";
 
 const LoginView: React.FC = () => {
-  const [firebaseAuth] = React.useState<Auth>(getFirebaseAuth());
-  const [isPending, setIsPending] = React.useState<boolean>(false);
+  const { handleSignInWithGoogle, handleSignInWithGithub, isLoading } = useSession();
 
-  const onAuth = React.useCallback(
-    async (providerId: OAuthProvider['providerId']): Promise<void> => {
-      setIsPending(true);
-  
-      let provider: GoogleAuthProvider | GithubAuthProvider;
-  
-      switch (providerId) {
-        case 'google':
-          provider = new GoogleAuthProvider();
-          break;
-        case 'github':
-          provider = new GithubAuthProvider();
-          break;
-        default:
-          throw new Error(`Unknown provider: ${providerId}`);
-      }
-  
-      try {
-        await signInWithPopup(firebaseAuth, provider);
-        // UserProvider will handle Router refresh
-        // After refresh, GuestGuard will handle the redirect
-      } catch (err) {
-        setIsPending(false);
-        // toast.error((err as { message: string }).message);
-      }
-    },
-    [firebaseAuth]
-  );
 
   return (
     <div className="flex flex-col h-screen bg-zinc-100">
@@ -64,9 +27,9 @@ const LoginView: React.FC = () => {
           <p className="text-sm text-gray-500">
             Please chose the way you want to sign in to continue.
           </p>
-          <GithubSignInButton onSubmit={() => onAuth(oAuthProviders[1].providerId)} isPending={isPending} />
+          <GithubSignInButton onSubmit={handleSignInWithGithub} isPending={isLoading} />
           <Divider>OR</Divider>
-          <GoogleSignInButton onSubmit={() => onAuth(oAuthProviders[0].providerId)} isPending={isPending} />
+          <GoogleSignInButton onSubmit={handleSignInWithGoogle} isPending={isLoading} />
         </div>
       </main>
     </div>

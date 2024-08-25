@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import type { Auth } from "firebase/auth";
-import { getFirebaseAuth } from "@/lib/auth/getFirebaseAuth";
+import { auth } from "@/lib/firebase/client";
 
 export interface User {
   id: string;
@@ -17,9 +16,8 @@ export interface User {
 export interface SessionContextValue {
   user?: User | null;
   error?: string | null; 
-  isLoading: boolean ;
   token?: string | null;
-  checkSession?: () => Promise<void>;
+  isLoading: boolean ;
 }
 
 const defaultValue: SessionContextValue = {
@@ -40,11 +38,10 @@ export interface SessionProviderProps {
 export function SessionProvider({
   children,
 }: SessionProviderProps): React.JSX.Element {
-  const [firebaseAuth] = React.useState<Auth>(getFirebaseAuth());
   const [state, setState] = React.useState<SessionContextValue>(defaultValue);
 
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       const token = user ? await user.getIdToken() : undefined;
 
       setState((prev) => ({
@@ -64,7 +61,7 @@ export function SessionProvider({
     return () => {
       unsubscribe();
     };
-  }, [firebaseAuth]);
+  }, []);
 
   return (
     <SessionContext.Provider value={state}>
