@@ -1,10 +1,10 @@
 'use client';
+import useSession from "@/hooks/use-session";
 import React from "react";
 import Divider from "../core/divider";
 import SignUpLinkButton from "../SignUpLinkButton";
 import GithubSignInButton from "./github-signin-button";
 import GoogleSignInButton from "./google-signin-button.tsx";
-import useSession from "@/hooks/use-session";
 
 const LoginView: React.FC = () => {
   const { handleSignInWithGoogle, handleSignInWithGithub, isLoading } = useSession();

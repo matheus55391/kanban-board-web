@@ -2,8 +2,7 @@
 
 import { SessionContext, SessionContextValue } from '@/contexts/session-context';
 import { auth as firebaseAuth } from '@/lib/firebase/client';
-import { signOut, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth/web-extension';
+import { signOut, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import * as React from 'react';
 
 interface useSessionProps extends SessionContextValue {
