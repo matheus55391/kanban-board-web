@@ -1,21 +1,15 @@
 "use client";
 
-import LogoutButton from "@/components/auth/logout-button";
 import KanbanBoard from "@/components/pages/dashboard/KanbanBoard";
 import useSession from "@/hooks/use-session";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { AiOutlineHome } from "react-icons/ai";
-import { BsFillKanbanFill } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { GoKebabHorizontal } from "react-icons/go";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { IoLogoGithub, IoCube, IoPeople, IoLogoBuffer } from "react-icons/io5";
+import { IoLogoBuffer } from "react-icons/io5";
 import { MdOutlineTask } from "react-icons/md";
-import { PiSquaresFourLight } from "react-icons/pi";
-import { RiGroupLine } from "react-icons/ri";
 import { TiStarHalfOutline } from "react-icons/ti";
 
 export default function DashboardView() {
