@@ -4,10 +4,7 @@ import DashboardView from "@/components/dashboard/dashboard.view";
 import React from "react";
 
 const DashBoardPage: React.FC = () => {
-
-  return (
-   <DashboardView />
-  );
+  return <DashboardView />;
 };
 
 export default DashBoardPage;

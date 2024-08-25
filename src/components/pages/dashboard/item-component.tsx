@@ -1,5 +1,6 @@
 import { Draggable } from "@hello-pangea/dnd";
 import React from "react";
+import { BiMessage } from "react-icons/bi";
 
 interface Tag {
   name: string;
@@ -35,20 +36,28 @@ const TaskItemCard: React.FC<TaskItemCardProps> = ({
         className={getItemStyle(snapshot.isDragging)}
         style={provided.draggableProps.style}
       >
-        <div className="flex flex-col rounded-md p-4 bg-white w-full h-full border-[1px] border-gray-300">
-          <h1 className="text-sm font-semibold text-black">{title}</h1>
-          <div className="flex flex-row space-x-2 py-2">
+        <div className="flex flex-col rounded-lg p-4 bg-white w-full min-h-24 space-y-2">
+          <div className="flex flex-row space-x-2">
             {tags.map((tag, index) => (
               <div
                 key={index}
-                className={`rounded-lg p-2 text-xs text-white ${tag.color}`}
+                className={`flex items-center justify-center rounded-lg h-6 min-w-8 p-2 text-xs text-white ${tag.color}`}
               >
-                <span className="font-light">{tag.name}</span>
+                <span className="font-light text-xs">{tag.name}</span>
               </div>
             ))}
           </div>
-          <div>
-            <span className="text-xs text-gray-400">{date}</span>
+          <div className="flex flex-col" >
+            <h1 className="text-base font-medium text-black">{title}</h1>
+            <span className="text-xs text-gray-400">
+              Brainstorming brings team members diverse experience into play.
+            </span>
+          </div>
+          <div className="flex flex-row pt-3">
+            <div className="flex flex-row  items-center space-x-1">
+              <BiMessage size={14} className="text-gray-400" />
+              <span className="text-xs text-gray-400" >10 comments</span>
+            </div>
           </div>
         </div>
       </div>

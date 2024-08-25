@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { DragDropContext, DropResult } from "@hello-pangea/dnd";
-import ColumnComponent from "./ColumnComponent";
+import ColumnComponent from "./column-component";
 import { BoardManager, State } from "@/utils/BoardManager";
 
 export default function KanbanBoard() {
@@ -32,7 +32,7 @@ export default function KanbanBoard() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="flex flex-row overflow-x-scroll h-full  w-full ">
         <ColumnComponent
-          title="Todo"
+          title="To do"
           items={state.planned}
           droppableId="planned"
           color="bg-gray-300"

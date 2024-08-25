@@ -14,7 +14,7 @@ export interface User {
 }
 
 export interface SessionContextValue {
-  user?: User | null;
+  user?: User | null | undefined;
   error?: string | null; 
   token?: string | null;
   isLoading: boolean ;
@@ -51,7 +51,7 @@ export function SessionProvider({
           email: user.email ?? undefined,
           name: user.displayName ?? undefined,
           avatar: user.photoURL ?? undefined,
-        } satisfies User) : null,
+        } satisfies User) : undefined,
         token,
         isLoading: false,
         error: null,

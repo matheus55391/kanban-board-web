@@ -1,6 +1,6 @@
 import { Droppable } from "@hello-pangea/dnd";
 import React from "react";
-import ItemComponent from "./ItemComponent";
+import ItemComponent from "./item-component";
 
 interface ColumnProps {
   title: string;
@@ -20,11 +20,12 @@ const ColumnComponent: React.FC<ColumnProps> = ({
       <div
         ref={provided.innerRef}
         {...provided.droppableProps}
-        className="flex flex-col min-w-72 space-y-2  m-2 p-2 "
+        className="flex flex-col min-w-72 space-y-2 m-2 p-4 bg-gray-100 rounded-xl "
       >
-        <div className="flex flex-row items-center space-x-1">
-          <div className={`w-3 h-3 rounded-full ${color}`}></div>
-          <h2 className="text-base font-medium text-gray-400">{title} {items.length > 0 && (`(${items.length})`)}</h2>
+        <div className={`flex flex-row items-center space-x-1 border-b-2 py-2 pb-3 mb-2`}>
+          <div className={`w-2 h-2 mr-1 rounded-full ${color}`}></div>
+          <h2 className="text-sm font-medium text-black rounded-full">{title}</h2>
+          <span className="text-xs text-gray-400 bg-gray-200 rounded-full w-4 h-4 text-center">{items.length}</span>
         </div>
 
         {items.map((item, index) => (
