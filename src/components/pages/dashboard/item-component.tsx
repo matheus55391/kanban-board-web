@@ -41,7 +41,7 @@ const TaskItemCard: React.FC<TaskItemCardProps> = ({
             {tags.map((tag, index) => (
               <div
                 key={index}
-                className={`flex items-center justify-center rounded-lg h-6 min-w-8 p-2 text-xs text-white ${tag.color}`}
+                className={`flex items-center justify-center rounded-sm h-6 min-w-8 p-2 text-xs text-white ${tag.color}`}
               >
                 <span className="font-light text-xs">{tag.name}</span>
               </div>

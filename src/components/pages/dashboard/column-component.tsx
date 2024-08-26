@@ -33,8 +33,8 @@ const ColumnComponent: React.FC<ColumnProps> = ({
             key={item.id}
             id={item.id}
             tags={[
-              { name: "Front", color: "bg-red-600" },
-              { name: "Mobile", color: "bg-purple-600" },
+              { name: "Front", color: "bg-red-500" },
+              { name: "Mobile", color: "bg-purple-500" },
             ]}
             title="Tarefa de teste"
             date="Marco de 2023"
