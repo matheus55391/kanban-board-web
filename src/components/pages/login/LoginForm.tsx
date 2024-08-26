@@ -28,6 +28,7 @@ const LoginForm: React.FC = () => {
   }) => {
     const res = await axios.post("/Auth/Login", {
       email: email,
+      
       password: password,
     });
     return res.data;
