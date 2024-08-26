@@ -15,19 +15,11 @@ import { MdOutlineTask } from "react-icons/md";
 import { TiStarHalfOutline } from "react-icons/ti";
 
 export default function DashboardView() {
-  const { user } = useSession();
+  // const { user } = useSession();
 
   return (
     <DashboardLayout>
-      <div className="flex flex-col w-full overflow-scroll">
-        <div className="flex flex-row items-center pl-4">
-          <IoLogoBuffer className="text-black" size={24} />
-          <h1 className="text-2xl font-bold text-center p-3">Project Board</h1>
-        </div>
-        <div className="flex h-full w-full ">
-          <KanbanBoard />
-        </div>
-      </div>
+      <KanbanBoard />
     </DashboardLayout>
   );
 }

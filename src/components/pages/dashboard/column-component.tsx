@@ -19,8 +19,8 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     {(provided, snapshot) => (
       <div
         ref={provided.innerRef}
-        {...provided.droppableProps}
-        className="flex flex-col min-w-72 space-y-2 m-2 p-4 bg-gray-100 rounded-xl "
+        {...provided.droppableProps} 
+        className="flex flex-col  space-y-2 m-2 p-4 bg-gray-100 rounded-xl min-w-32 max-w-96"
       >
         <div className={`flex flex-row items-center space-x-1 border-b-2 py-2 pb-3 mb-2`}>
           <div className={`w-2 h-2 mr-1 rounded-full ${color}`}></div>
