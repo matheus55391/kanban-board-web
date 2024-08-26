@@ -1,13 +1,13 @@
 "use client";
-import React from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { FormError } from "@/components/alerts/FormError";
-import { useMutation } from "@tanstack/react-query";
-import { CgSpinner } from "react-icons/cg";
+import { FormError } from "@/components/core/alerts/FormError";
 import { loginSchema } from "@/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { CgSpinner } from "react-icons/cg";
+import * as z from "zod";
 
 const LoginForm: React.FC = () => {
 
