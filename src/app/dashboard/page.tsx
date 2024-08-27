@@ -1,6 +1,6 @@
 "use client";
 
-import DashboardView from "@/components/dashboard/dashboard.view";
+import DashboardView from "@/components/dashboard/dashboard-view";
 import React from "react";
 
 const DashBoardPage: React.FC = () => {
