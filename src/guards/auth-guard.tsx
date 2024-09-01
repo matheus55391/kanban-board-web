@@ -25,7 +25,7 @@ export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | nul
 
     if (!user) {
 
-      router.replace('/');
+      router.replace('/login');
       return;
     }
 
