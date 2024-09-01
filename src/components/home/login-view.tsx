@@ -106,19 +106,14 @@ export function LoginView() {
                 className="absolute bottom-1 right-1 h-7 w-7"
                 onClick={toggleShowPassword}
               >
-                {
-                  showPassword ? (
-                    <EyeIcon
-                      className="h-4 w-4"
-                      onClick={toggleShowPassword}
-                    />
-                  ) : (
-                    <EyeOffIcon
-                      className="h-4 w-4"
-                      onClick={toggleShowPassword}
-                    />
-                  )
-                }
+                {showPassword ? (
+                  <EyeIcon className="h-4 w-4" onClick={toggleShowPassword} />
+                ) : (
+                  <EyeOffIcon
+                    className="h-4 w-4"
+                    onClick={toggleShowPassword}
+                  />
+                )}
                 <span className="sr-only">Toggle password visibility</span>
               </Button>
             </div>
@@ -160,7 +155,7 @@ export function LoginView() {
           Google
         </Button>
         <p className="text-center text-muted-foreground">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link
             href="/register"
             className="text-primary hover:underline"
