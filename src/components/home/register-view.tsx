@@ -33,7 +33,7 @@ type RegisterSchema = z.infer<typeof registerSchema>;
 export function RegisterView() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { handleSignUpEmail, handleSignUpWithGoogle } = useSession();
+  const { handleSignUpEmail, handleSignInWithGoogle } = useSession();
 
   const toggleShowPassword = () => setShowPassword(!showPassword);
   const toggleShowConfirmPassword = () =>
@@ -162,7 +162,7 @@ export function RegisterView() {
             </span>
           </div>
         </div>
-        <Button variant="outline" className="w-full" onClick={handleSignUpWithGoogle}>
+        <Button variant="outline" className="w-full" onClick={handleSignInWithGoogle}>
           <ChromeIcon className="mr-2 h-4 w-4" />
           Register with Google
         </Button>
