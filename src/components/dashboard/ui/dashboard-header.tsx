@@ -1,13 +1,8 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+"use client";
+
+import { ThemeToggleButton } from "@/components/core/theme-toggle-button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import {
-  Search,
-  Menu,
-  CircleUser,
-  Package2,
-  Home,
-  Settings,
-} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Home, Menu, Package2, Search, Settings } from "lucide-react";
 import Link from "next/link";
 import {
   Card,
@@ -25,10 +22,11 @@ import {
   CardHeader,
   CardTitle,
 } from "../../ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ThemeToggleButton } from "@/components/core/theme-toggle-button";
+import useSession from "@/hooks/use-session";
 
 export default function DashboardHeader() {
+  const { handleSignOut } = useSession();
+
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
       <Sheet>
@@ -110,10 +108,9 @@ export default function DashboardHeader() {
           <DropdownMenuItem>Settings</DropdownMenuItem>
           <DropdownMenuItem>Support</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
+          <DropdownMenuItem onClick={handleSignOut} className="hover:cursor-pointer">Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-
     </header>
   );
 }
