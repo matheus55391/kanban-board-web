@@ -38,16 +38,16 @@ export default function KanbanBoard() {
   };
 
   return (
-    <div className="flex flex-col min-h-full max-h-full overflow-hidden .no-scrollbar ">
-      <div className="flex flex-col w-full space-y-4 mb-4">
+    <div className="flex flex-col min-h-full max-h-full overflow-hidden .no-scrollbar space-y-4  ">
+      <div className="flex flex-col w-full space-y-4  ">
         <div className="flex flex-col lg:flex-row  lg:items-center space-y-2 justify-between ">
           <div className="flex flex-row items-center space-x-4">
             <h1 className="text-4xl font-bold text-center">Project Board</h1>
-            <div className="bg-gray-200 rounded-md h-5 w-5 flex items-center justify-center p-1 ">
+            {/* <div className="bg-gray-200 rounded-md h-5 w-5 flex items-center justify-center p-1 ">
               <MdOutlineModeEdit size={14} color="black" />
-            </div>
+            </div> */}
           </div>
-          <div className="flex flex-row items-center space-x-2">
+          {/* <div className="flex flex-row items-center space-x-2">
             <div className="flex flex-row items-center space-x-2">
               <div className="bg-gray-200 rounded-md h-5 w-5 flex items-center justify-center p-1 ">
                 <IoIosAdd size={16} color="black" />
@@ -63,7 +63,7 @@ export default function KanbanBoard() {
                 className="rounded-full"
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-row items-center justify-between ">
           <Button variant="outline" className="flex flex-row space-x-2">
@@ -79,30 +79,28 @@ export default function KanbanBoard() {
           </div>
         </div>
       </div>
-      <div className="  max-h-full overflow-scroll p-2 .no-scrollbar ">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <div className="flex flex-row space-x-4 p-2  max-h-full">
-            <ColumnComponent
-              title="To do"
-              items={state.planned}
-              droppableId="planned"
-              color="bg-gray-300"
-            />
-            <ColumnComponent
-              title="In Progress"
-              items={state.inProgress}
-              droppableId="inProgress"
-              color="bg-yellow-300"
-            />
-            <ColumnComponent
-              title="Completed"
-              items={state.done}
-              droppableId="done"
-              color="bg-green-300"
-            />
-          </div>
-        </DragDropContext>
-      </div>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className="flex flex-row space-x-4  max-h-full overflow-hidden   ">
+          <ColumnComponent
+            title="To do"
+            items={state.planned}
+            droppableId="planned"
+            color="bg-gray-300"
+          />
+          <ColumnComponent
+            title="In Progress"
+            items={state.inProgress}
+            droppableId="inProgress"
+            color="bg-yellow-300"
+          />
+          <ColumnComponent
+            title="Completed"
+            items={state.done}
+            droppableId="done"
+            color="bg-green-300"
+          />
+        </div>
+      </DragDropContext>
     </div>
   );
 }
