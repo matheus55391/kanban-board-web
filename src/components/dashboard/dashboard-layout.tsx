@@ -1,6 +1,5 @@
 import DashboardSidebar from "./ui/dashboard-sidebar";
 import DashboardHeader from "./ui/dashboard-header";
-import DashboardContent from "./ui/dashboard-content";
 
 interface SidebarLinkProps {
   children?: React.ReactNode;

@@ -1,9 +1,12 @@
-'use client';
+"use client";
 import React from "react";
-import LoginView from "@/components/auth/login-view";
 import { GuestGuard } from "@/components/guards/guest-guard";
+import { LoginView } from "@/components/home/login-view";
 
 export default function LoginPage(): React.JSX.Element {
-  return <GuestGuard><LoginView /></GuestGuard>; 
-};
-
+  return (
+    <GuestGuard>
+      <LoginView />
+    </GuestGuard>
+  );
+}

@@ -1,4 +1,4 @@
-import KanbanBoard from "@/components/pages/dashboard/kanban-board";
+import KanbanBoard from "@/components/dashboard/kanban/kanban-board";
 import React from "react";
 
 const DashBoardPage: React.FC = () => {
