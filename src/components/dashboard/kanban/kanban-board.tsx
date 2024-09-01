@@ -79,9 +79,9 @@ export default function KanbanBoard() {
           </div>
         </div>
       </div>
-      <div className=" h-full  .no-scrollbar ">
+      <div className="  max-h-full overflow-scroll p-2 .no-scrollbar ">
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className="flex flex-row max-h-full w-full overflow-hidden space-x-4 .no-scrollbar">
+          <div className="flex flex-row space-x-4 p-2  max-h-full">
             <ColumnComponent
               title="To do"
               items={state.planned}

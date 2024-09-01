@@ -11,7 +11,7 @@ export function DashboardLayout({ children }: SidebarLinkProps) {
       <DashboardSidebar />
       <div className="flex flex-col min-h-full max-h-screen max-w-full overflow-auto">
         <DashboardHeader />
-        <main className="flex flex-1 flex-col p-2 md:p-4 lg:p-6 max-h-full   ">
+        <main className="flex flex-1 flex-col p-2 md:p-4 lg:p-6 max-h-full overflow-auto   ">
           {children}
         </main>
       </div>

@@ -20,7 +20,7 @@ const ColumnComponent: React.FC<ColumnProps> = ({
       <div
         ref={provided.innerRef}
         {...provided.droppableProps}
-        className="flex flex-col space-y-2 p-4 border rounded-xl min-w-56 max-w-96 max-h-full"
+        className="flex flex-col space-y-2 p-4 border rounded-xl min-w-72 max-w-96  max-h-full transition-all"
       >
         <div
           className={`flex flex-row items-center border-b-2 py-2 pb-3 mb-2 space-x-2`}
