@@ -25,7 +25,7 @@ import {
 import useSession from "@/hooks/use-session";
 
 export default function DashboardHeader() {
-  const { handleSignOut } = useSession();
+  const { handleSignOut, user } = useSession();
 
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
@@ -97,8 +97,8 @@ export default function DashboardHeader() {
         <DropdownMenuTrigger asChild>
           <Button variant="secondary" size="icon" className="rounded-full">
             <Avatar className="h-8 w-8">
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <span className="sr-only">Toggle user menu</span>
+              <AvatarImage src={user?.avatar} />
+              <span className="sr-only">{user?.name}</span>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
@@ -108,7 +108,12 @@ export default function DashboardHeader() {
           <DropdownMenuItem>Settings</DropdownMenuItem>
           <DropdownMenuItem>Support</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleSignOut} className="hover:cursor-pointer">Logout</DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={handleSignOut}
+            className="hover:cursor-pointer"
+          >
+            Logout
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
