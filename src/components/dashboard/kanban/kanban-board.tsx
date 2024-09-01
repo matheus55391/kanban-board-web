@@ -38,7 +38,7 @@ export default function KanbanBoard() {
   };
 
   return (
-    <div className="flex flex-col min-h-full max-h-full overflow-hidden ">
+    <div className="flex flex-col min-h-full max-h-full overflow-hidden .no-scrollbar ">
       <div className="flex flex-col w-full space-y-4 mb-4">
         <div className="flex flex-col lg:flex-row  lg:items-center space-y-2 justify-between ">
           <div className="flex flex-row items-center space-x-4">
@@ -79,9 +79,9 @@ export default function KanbanBoard() {
           </div>
         </div>
       </div>
-      <div className=" h-full overflow-hidden  ">
+      <div className=" h-full  .no-scrollbar ">
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className="flex flex-row max-h-full w-full overflow-hidden space-x-4 ">
+          <div className="flex flex-row max-h-full w-full overflow-hidden space-x-4 .no-scrollbar">
             <ColumnComponent
               title="To do"
               items={state.planned}
