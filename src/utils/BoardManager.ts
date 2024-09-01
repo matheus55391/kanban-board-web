@@ -17,9 +17,9 @@ const getItems = (count: number, offset: number = 0): Item[] =>
 
 export class BoardManager {
   static initialState: State = {
-    planned: getItems(5, 0),
-    inProgress: getItems(5, 5),
-    done: getItems(5, 10),
+    planned: getItems(3, 0),
+    inProgress: getItems(3, 3),
+    done: getItems(3, 6),
   };
 
   static reorderList(

@@ -16,7 +16,7 @@ interface TaskItemCardProps {
 }
 
 const getItemStyle = (isDragging: boolean): string =>
-  `flex w-full justify-center items-center rounded ${
+  `flex w-full justify-center items-center rounded-lg border ${
     isDragging ? "opacity-90" : ""
   }`;
 
@@ -36,7 +36,7 @@ const TaskItemCard: React.FC<TaskItemCardProps> = ({
         className={getItemStyle(snapshot.isDragging)}
         style={provided.draggableProps.style}
       >
-        <div className="flex flex-col rounded-lg p-4 bg-white w-full min-h-24 space-y-2">
+        <div className="flex flex-col rounded-lg p-4  w-full max-w-80 min-h-24 space-y-2">
           <div className="flex flex-row space-x-2">
             {tags.map((tag, index) => (
               <div
@@ -47,8 +47,8 @@ const TaskItemCard: React.FC<TaskItemCardProps> = ({
               </div>
             ))}
           </div>
-          <div className="flex flex-col" >
-            <h1 className="text-base font-medium text-black">{title}</h1>
+          <div className="flex flex-col space-y-2" >
+            <h1 className="text-base font-medium text-black dark:text-white">{title}</h1>
             <span className="text-xs text-gray-400">
               Brainstorming brings team members diverse experience into play.
             </span>

@@ -19,29 +19,37 @@ const ColumnComponent: React.FC<ColumnProps> = ({
     {(provided, snapshot) => (
       <div
         ref={provided.innerRef}
-        {...provided.droppableProps} 
-        className="flex flex-col  space-y-2 m-2 p-4 bg-gray-100 rounded-xl min-w-32 max-w-96"
+        {...provided.droppableProps}
+        className="flex flex-col space-y-2 p-4 border rounded-xl min-w-56 max-w-96 max-h-full"
       >
-        <div className={`flex flex-row items-center space-x-1 border-b-2 py-2 pb-3 mb-2`}>
-          <div className={`w-2 h-2 mr-1 rounded-full ${color}`}></div>
-          <h2 className="text-sm font-medium text-black rounded-full">{title}</h2>
-          <span className="text-xs text-gray-400 bg-gray-200 rounded-full w-4 h-4 text-center">{items.length}</span>
+        <div
+          className={`flex flex-row items-center border-b-2 py-2 pb-3 mb-2 space-x-2`}
+        >
+          <div className={`w-2 h-2 mr-1 rounded-full  ${color}`} />
+          <h2 className="text-base font-semibold text-black dark:text-white rounded-full ">
+            {title}
+          </h2>
+          <div className="flex items-center justify-center rounded-full h-5 w-5 border border-zinc-300">
+            <span className="text-xs  ">{items.length}</span>
+          </div>
         </div>
 
-        {items.map((item, index) => (
-          <ItemComponent
-            key={item.id}
-            id={item.id}
-            tags={[
-              { name: "Front", color: "bg-red-500" },
-              { name: "Mobile", color: "bg-purple-500" },
-            ]}
-            title="Tarefa de teste"
-            date="Marco de 2023"
-            index={index}
-          />
-        ))}
-        {provided.placeholder}
+        <div className="flex flex-col space-y-2 max-h-full overflow-y-scroll px-2 no-scrollbar">
+          {items.map((item, index) => (
+            <ItemComponent
+              key={item.id}
+              id={item.id}
+              tags={[
+                { name: "Front", color: "bg-red-500" },
+                { name: "Mobile", color: "bg-purple-500" },
+              ]}
+              title="Tarefa de teste"
+              date="Marco de 2023"
+              index={index}
+            />
+          ))}
+          {provided.placeholder}
+        </div>
       </div>
     )}
   </Droppable>

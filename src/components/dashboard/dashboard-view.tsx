@@ -7,15 +7,11 @@ import React from "react";
 import { BiExit, BiSearch } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
 import { SlArrowDown } from "react-icons/sl";
-import DashboardSideBar from "./dashboard-sidebar";
+import DashboardSideBar from "./old/dashboard-sidebar";
+import { ThemeToggleButton } from "../core/theme-toggle-button";
 
 export default function DashboardView() {
-
-  return (
-    <DashboardLayout>
-      <KanbanBoard />
-    </DashboardLayout>
-  );
+  return <KanbanBoard />;
 }
 
 interface SidebarLinkProps {
@@ -25,7 +21,7 @@ interface SidebarLinkProps {
 function DashboardLayout({ children }: SidebarLinkProps) {
   const { user, handleSignOut } = useSession();
   return (
-    <div className="flex flex-row h-screen w-screen ">
+    <div className="flex flex-row max-h-screen min-h-screen overflow-hidden ">
       <DashboardSideBar />
       <div className="flex flex-col w-full">
         <div className="flex flex-row justify-between min-h-20 max-h-20 p-4 px-8 border-b-[1px]">
@@ -39,6 +35,8 @@ function DashboardLayout({ children }: SidebarLinkProps) {
           </div>
 
           <div className="flex flex-row items-center space-x-4  ">
+            <ThemeToggleButton />
+
             <div className="flex flex-col items-end pl-2 ">
               <p className="text-sm font-semibold">{user?.name}</p>
               <div
@@ -64,8 +62,3 @@ function DashboardLayout({ children }: SidebarLinkProps) {
     </div>
   );
 }
-
-
-
-
-

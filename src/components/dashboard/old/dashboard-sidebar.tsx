@@ -15,9 +15,9 @@ export default function DashboardSideBar() {
     // };
     return (
       <div className="flex flex-col w-80  border-r-[1px]   ">
-        <div className="flex flex-row border-b-[1px]  min-h-20 max-h-20 items-center space-x-2 justify-center">
+        <div className="flex flex-row border-b-[1px]  min-h-20 max-h-20 items-center space-x-2 justify-start px-4">
           <TiStarHalfOutline size={32} color="red" />
-          <h1 className="font-bold text-lg line-clamp-1">Project Kanban Board</h1>
+          <h1 className="font-bold text-lg line-clamp-1">MegaBoard</h1>
         </div>
         <div className="p-2 flex flex-col space-y-2">
           <MenuSideBar />

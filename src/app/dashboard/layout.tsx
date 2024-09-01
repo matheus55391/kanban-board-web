@@ -1,5 +1,6 @@
-import { AuthGuard } from '@/components/guards/auth-guard';
-import * as React from 'react';
+import { DashboardLayout } from "@/components/dashboard/dashboard-layout";
+import { AuthGuard } from "@/components/guards/auth-guard";
+import * as React from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps): React.JSX.Element {
   return (
     <AuthGuard>
-      {children}
+      <DashboardLayout>{children}</DashboardLayout>
     </AuthGuard>
   );
 }

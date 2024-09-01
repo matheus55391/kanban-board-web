@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import useSession from "@/hooks/use-session";
 import { BoardManager, State } from "@/utils/BoardManager";
 import { DragDropContext, DropResult } from "@hello-pangea/dnd";
@@ -9,7 +10,6 @@ import { CiFilter } from "react-icons/ci";
 import { IoIosAdd } from "react-icons/io";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { RiGroupLine } from "react-icons/ri";
-import { SlGrid, SlLayers } from "react-icons/sl";
 import { TfiAngleDown } from "react-icons/tfi";
 import ColumnComponent from "./column-component";
 
@@ -38,9 +38,9 @@ export default function KanbanBoard() {
   };
 
   return (
-    <div className="flex flex-col w-full overflow-scroll">
-      <div className="flex flex-col w-full px-4 space-y-12 py-8">
-        <div className="flex flex-row items-center justify-between ">
+    <div className="flex flex-col min-h-full max-h-full overflow-hidden ">
+      <div className="flex flex-col w-full space-y-4 mb-4">
+        <div className="flex flex-col lg:flex-row  lg:items-center space-y-2 justify-between ">
           <div className="flex flex-row items-center space-x-4">
             <h1 className="text-4xl font-bold text-center">Project Board</h1>
             <div className="bg-gray-200 rounded-md h-5 w-5 flex items-center justify-center p-1 ">
@@ -66,29 +66,22 @@ export default function KanbanBoard() {
           </div>
         </div>
         <div className="flex flex-row items-center justify-between ">
-          <div className="flex flex-row space-x-2 items-center justify-center border-2 p-2 border-gray-300 rounded-md max-w-28 px-3">
+          <Button variant="outline" className="flex flex-row space-x-2">
             <CiFilter size={18} color="gray" />
-            <span className="text-sm font-normal text-gray-500">Filter</span>
+            <span className="text-sm font-normal">Filter</span>
             <TfiAngleDown size={18} color="gray" />
-          </div>
-          <div className="flex flex-row h-full space-x-2 items-center ">
-            <div className="flex flex-row space-x-2 items-center justify-center border-2 p-2 border-gray-300 rounded-md max-w-28 px-3">
+          </Button>
+          <div className="flex flex-row h-full">
+            <Button variant="outline" className="flex flex-row space-x-2">
               <RiGroupLine size={18} color="gray" />
-              <span className="text-sm font-normal text-gray-500">Share</span>
-            </div>
-            <div className="h-8 w-[1px] bg-gray-400 flex" />
-            <div className="h-10 w-10 bg-gray-200 rounded-lg p-1 flex items-center justify-center hover:cursor-pointer">
-              <SlGrid size={20} color="gray" />
-            </div>
-            <div className="h-10 w-10 bg-gray-50 rounded-lg p-1 flex items-center justify-center hover:cursor-pointer">
-              <SlLayers size={20} color="gray" />
-            </div>
+              <span className="text-sm font-normal">Share</span>
+            </Button>
           </div>
         </div>
       </div>
-      <div className="flex h-full w-full ">
+      <div className=" h-full overflow-hidden  ">
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className="flex flex-row overflow-x-scroll h-full  w-full ">
+          <div className="flex flex-row max-h-full w-full overflow-hidden space-x-4 ">
             <ColumnComponent
               title="To do"
               items={state.planned}

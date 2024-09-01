@@ -1,10 +1,8 @@
-"use client";
-
-import DashboardView from "@/components/dashboard/dashboard-view";
+import KanbanBoard from "@/components/pages/dashboard/kanban-board";
 import React from "react";
 
 const DashBoardPage: React.FC = () => {
-  return <DashboardView />;
+  return <KanbanBoard />;
 };
 
 export default DashBoardPage;
