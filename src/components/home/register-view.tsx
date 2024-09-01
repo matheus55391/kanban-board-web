@@ -162,7 +162,7 @@ export function RegisterView() {
             </span>
           </div>
         </div>
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full" onClick={handleSignUpWithGoogle}>
           <ChromeIcon className="mr-2 h-4 w-4" />
           Register with Google
         </Button>
