@@ -1,6 +1,6 @@
 "use client";
 
-import { Package2, Home, Settings } from "lucide-react";
+import { Package2, Home, Settings, Cross, Plus } from "lucide-react";
 import Link from "next/link";
 import {
   Card,
@@ -13,6 +13,23 @@ import { usePathname } from "next/navigation";
 import { Button } from "../../ui/button";
 import SidebarLink from "./sidebar-link";
 import { ThemeToggleButton } from "@/components/core/theme-toggle-button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import ProjectLink from "./project-link";
 
 export default function DashboardSidebar() {
   const pathname = usePathname();
@@ -41,7 +58,56 @@ export default function DashboardSidebar() {
               Settings
             </SidebarLink>
           </nav>
+          <nav className="grid items-start px-2 text-sm font-medium lg:px-4 space-y-2  border-b py-4">
+            <div className="flex flex-row items-center justify-between">
+              <p className="text-lg font-semibold text-muted-foreground">
+                Projects
+              </p>
+
+              <Dialog>
+                <DialogTrigger>
+                  <Button variant={"ghost"} size="sm">
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Create Project</DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div>
+                      <Label htmlFor="title" className="text-right">
+                        Project Title
+                      </Label>
+                      <Input
+                        id="title"
+                        type="text"
+                        placeholder="Enter your project title"
+                        className="mt-1"
+                      />
+
+                      {/* {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email.message}
+                        </p>
+                      )} */}
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <Button type="submit">Create</Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
+            <ProjectLink href="/dashboard" isActive={true} >
+              Teste
+            </ProjectLink>
+            <ProjectLink href="/dashboard" isActive={false} >
+              Teste
+            </ProjectLink>
+          </nav>
         </div>
+
         <div className="mt-auto p-4">
           <Card x-chunk="dashboard-02-chunk-0">
             <CardHeader className="p-2 pt-0 md:p-4">
